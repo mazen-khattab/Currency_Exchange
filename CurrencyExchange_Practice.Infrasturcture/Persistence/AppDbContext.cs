@@ -10,13 +10,14 @@ using System.Threading.Tasks;
 
 namespace CurrencyExchange_Practice.Infrasturcture.Persistence
 {
-    public class AppDbContext : IdentityDbContext
+    public class AppDbContext : IdentityDbContext<User>
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
         public DbSet<Country> Countries { get; set; }
         public DbSet<Currency> Currencies { get; set; }
         public DbSet<ExchangeRate> Rates { get; set; }
+        public DbSet<RefreshToken> RefreshTokens { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

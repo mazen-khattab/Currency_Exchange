@@ -1,4 +1,5 @@
 using CurrencyExchange_Practice.API.Middleware;
+using CurrencyExchange_Practice.Core.Entities;
 using CurrencyExchange_Practice.Core.Interfaces;
 using CurrencyExchange_Practice.Core.OtherObjects;
 using CurrencyExchange_Practice.Infrasturcture.Extensions;
@@ -33,7 +34,7 @@ namespace CurrencyExchange_Practice.API
             #endregion
             
             #region Authentication
-            builder.Services.AddIdentity<IdentityUser, IdentityRole>()
+            builder.Services.AddIdentity<User, IdentityRole>()
                 .AddEntityFrameworkStores<AppDbContext>()
                 .AddDefaultTokenProviders();
 
@@ -51,6 +52,7 @@ namespace CurrencyExchange_Practice.API
             {
                 options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                 options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
             })
                 .AddJwtBearer(options =>
                 {
@@ -63,6 +65,8 @@ namespace CurrencyExchange_Practice.API
                         ValidateAudience = true,
                         ValidAudience = builder.Configuration["Jwt:Audience"],
                         ValidateIssuerSigningKey = true,
+                        ValidateLifetime = true,
+                        ClockSkew = TimeSpan.Zero,
                         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"])),
                     };
                 });

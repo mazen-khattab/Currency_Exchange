@@ -1,5 +1,8 @@
-﻿using CurrencyExchange_Practice.Core;
+﻿using Azure.Core;
+using CurrencyExchange_Practice.Application.Services;
+using CurrencyExchange_Practice.Core;
 using CurrencyExchange_Practice.Core.AuthDtos;
+using CurrencyExchange_Practice.Core.Entities;
 using CurrencyExchange_Practice.Core.Interfaces;
 using CurrencyExchange_Practice.Core.OtherObjects;
 using Microsoft.AspNetCore.Identity;
@@ -9,7 +12,9 @@ using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Security.Claims;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -17,26 +22,26 @@ namespace CurrencyExchange_Practice.Infrasturcture.Repositories
 {
     public class AuthService : IAuthService
     {
-        readonly UserManager<IdentityUser> _userManager;
+        readonly UserManager<User> _userManager;
         readonly RoleManager<IdentityRole> _roleManager;
         readonly IConfiguration _configuration;
+        readonly IService<RefreshToken> _service;
 
-        public AuthService(UserManager<IdentityUser> userManager, RoleManager<IdentityRole> roleManager, IConfiguration configuration)
+        public AuthService(UserManager<User> userManager, RoleManager<IdentityRole> roleManager, IService<RefreshToken> service, IConfiguration configuration)
         {
             _userManager = userManager;
             _roleManager = roleManager;
+            _service = service;
             _configuration = configuration;
         }
 
         public async Task<AuthServiceResponseDto> LoginAsync(LoginDto loginDto)
         {
             var user = await _userManager.FindByEmailAsync(loginDto.Email);
-            Console.WriteLine(loginDto.Email);
-            Console.WriteLine(user);
 
             if (user is null || user.Email != loginDto.Email)
             {
-                return new()
+                return new AuthServiceResponseDto()
                 {
                     IsSucceed = false,
                     Message = "Invalid Cedentials"
@@ -54,6 +59,81 @@ namespace CurrencyExchange_Practice.Infrasturcture.Repositories
                 };
             }
 
+            string accessToken = await GenerateNewAccessToken(user);
+            string refreshToken = await GenerateNewRefreshToken(user);
+
+            return new AuthServiceResponseDto()
+            {
+                IsSucceed = true,
+                Message = "Login successful",
+                AccessToken = accessToken,
+                RefreshToken = refreshToken
+            };
+        }
+
+        public async Task<AuthServiceResponseDto> RegisterAsync(RegisterDto registerDto)
+        {
+            var isExistsUser = await _userManager.FindByEmailAsync(registerDto.Email);
+
+            if (isExistsUser is not null)
+            {
+                return new AuthServiceResponseDto()
+                {
+                    IsSucceed = false,
+                    Message = "Email is already taken."
+                };
+            }
+
+            if (registerDto.Password != registerDto.ConfirmPassword)
+            {
+                return new AuthServiceResponseDto()
+                {
+                    IsSucceed = false,
+                    Message = "Passwords do not match"
+                };
+            }
+
+            User newUser = new()
+            {
+                UserName = registerDto.UserName,
+                Email = registerDto.Email,
+                SecurityStamp = Guid.NewGuid().ToString()
+            };
+
+            var createUser = await _userManager.CreateAsync(newUser, registerDto.Password);
+
+            if (!createUser.Succeeded)
+            {
+                string errorMessage = "User Creation Failed Because: ";
+
+                foreach (var error in createUser.Errors)
+                {
+                    errorMessage += $"# {error.Description}";
+                }
+
+                return new AuthServiceResponseDto()
+                {
+                    IsSucceed = false,
+                    Message = errorMessage
+                };
+            }
+
+            await _userManager.AddToRoleAsync(newUser, StaticUserRoles.USER);
+
+            string accessToken = await GenerateNewAccessToken(newUser);
+            string refreshToken = await GenerateNewRefreshToken(newUser);
+
+            return new AuthServiceResponseDto()
+            {
+                IsSucceed = true,
+                Message = "Login successful",
+                AccessToken = accessToken,
+                RefreshToken = refreshToken
+            };
+        }
+
+        private async Task<string> GenerateNewAccessToken(User user)
+        {
             var userRoles = await _userManager.GetRolesAsync(user);
 
             var authClaims = new List<Claim>()
@@ -68,26 +148,40 @@ namespace CurrencyExchange_Practice.Infrasturcture.Repositories
                 authClaims.Add(new Claim(ClaimTypes.Role, role));
             }
 
-            string token = GenerateNewToken(authClaims);
-
-            return new AuthServiceResponseDto()
-            {
-                IsSucceed = true,
-                Message = token
-            };
-        }
-        private string GenerateNewToken(List<Claim> claims)
-        {
             var authSecret = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
 
             var tokenOjbect = new JwtSecurityToken(
                     issuer: _configuration["Jwt:Issuer"],
                     audience: _configuration["Jwt:Audience"],
-                    expires: DateTime.Now.AddMinutes(1),
-                    claims: claims,
+                    expires: DateTime.Now.AddMinutes(5),
+                    claims: authClaims,
                     signingCredentials: new SigningCredentials(authSecret, SecurityAlgorithms.HmacSha256));
 
             string token = new JwtSecurityTokenHandler().WriteToken(tokenOjbect);
+
+            return token;
+        }
+
+        private async Task<string> GenerateNewRefreshToken(User user)
+        {
+            var randomNumber = new byte[64];
+
+            using (var rng = RandomNumberGenerator.Create())
+            {
+                rng.GetBytes(randomNumber);
+            }
+
+            string token = Convert.ToBase64String(randomNumber);
+
+            RefreshToken refreshToken = new()
+            {
+                Token = token,
+                UserId = user.Id,
+                ExpDate = DateTime.Now.AddDays(7),
+                User = user
+            };
+
+            await _service.AddAsync(refreshToken);
 
             return token;
         }
@@ -133,64 +227,6 @@ namespace CurrencyExchange_Practice.Infrasturcture.Repositories
             {
                 IsSucceed = true,
                 Message = "User is now an Owner"
-            };
-        }
-
-        public async Task<AuthServiceResponseDto> RegisterAsync(RegisterDto registerDto)
-        {
-            var isExistsUser = await _userManager.FindByEmailAsync(registerDto.Email);
-
-            Console.WriteLine($"is the user Exist: {isExistsUser}");
-
-            if (isExistsUser is not null)
-            {
-                return new AuthServiceResponseDto()
-                {
-                    IsSucceed = false,
-                    Message = "Email is already taken."
-                };
-            }
-
-            if (registerDto.Password != registerDto.ConfirmPassword)
-            {
-                return new AuthServiceResponseDto()
-                {
-                    IsSucceed = false,
-                    Message = "Passwords do not match"
-                };
-            }
-
-            IdentityUser newUser = new()
-            {
-                UserName = registerDto.UserName,
-                Email = registerDto.Email,
-                SecurityStamp = Guid.NewGuid().ToString()
-            };
-
-            var createUser = await _userManager.CreateAsync(newUser, registerDto.Password);
-
-            if (!createUser.Succeeded)
-            {
-                string errorMessage = "User Creation Failed Because: ";
-
-                foreach (var error in createUser.Errors)
-                {
-                    errorMessage += $"# {error.Description}";
-                }
-
-                return new AuthServiceResponseDto()
-                {
-                    IsSucceed = false,
-                    Message = errorMessage
-                };
-            }
-
-            await _userManager.AddToRoleAsync(newUser, StaticUserRoles.USER);
-
-            return new AuthServiceResponseDto()
-            {
-                IsSucceed = true,
-                Message = "User Created Successfully"
             };
         }
 

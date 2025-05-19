@@ -3,36 +3,32 @@
   "WorkspaceRootPath": "D:\\Mazen\\Projects\\CurrencyExchange_Practice\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8422307B-D646-4EEE-B78C-12F989BB4EAF}|CurrencyExchange_Practice.Infrasturcture\\CurrencyExchange_Practice.Infrasturcture.csproj|d:\\mazen\\projects\\currencyexchange_practice\\currencyexchange_practice.infrasturcture\\repositories\\repo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8422307B-D646-4EEE-B78C-12F989BB4EAF}|CurrencyExchange_Practice.Infrasturcture\\CurrencyExchange_Practice.Infrasturcture.csproj|solutionrelative:currencyexchange_practice.infrasturcture\\repositories\\repo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{8422307B-D646-4EEE-B78C-12F989BB4EAF}|CurrencyExchange_Practice.Infrasturcture\\CurrencyExchange_Practice.Infrasturcture.csproj|d:\\mazen\\projects\\currencyexchange_practice\\currencyexchange_practice.infrasturcture\\repositories\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8422307B-D646-4EEE-B78C-12F989BB4EAF}|CurrencyExchange_Practice.Infrasturcture\\CurrencyExchange_Practice.Infrasturcture.csproj|solutionrelative:currencyexchange_practice.infrasturcture\\repositories\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B4936A78-AFAA-4F83-99DC-7E3A67AEBD2E}|CurrencyExchange_Practice.API\\CurrencyExchange_Practice.API.csproj|d:\\mazen\\projects\\currencyexchange_practice\\currencyexchange_practice.api\\controllers\\currencycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B4936A78-AFAA-4F83-99DC-7E3A67AEBD2E}|CurrencyExchange_Practice.API\\CurrencyExchange_Practice.API.csproj|solutionrelative:currencyexchange_practice.api\\controllers\\currencycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B4936A78-AFAA-4F83-99DC-7E3A67AEBD2E}|CurrencyExchange_Practice.API\\CurrencyExchange_Practice.API.csproj|d:\\mazen\\projects\\currencyexchange_practice\\currencyexchange_practice.api\\controllers\\countrycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B4936A78-AFAA-4F83-99DC-7E3A67AEBD2E}|CurrencyExchange_Practice.API\\CurrencyExchange_Practice.API.csproj|solutionrelative:currencyexchange_practice.api\\controllers\\countrycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3FF50C44-D97A-496D-A689-C7FAE7444F75}|CurrencyExchange_Practice.Application\\CurrencyExchange_Practice.Application.csproj|d:\\mazen\\projects\\currencyexchange_practice\\currencyexchange_practice.application\\services\\service.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3FF50C44-D97A-496D-A689-C7FAE7444F75}|CurrencyExchange_Practice.Application\\CurrencyExchange_Practice.Application.csproj|solutionrelative:currencyexchange_practice.application\\services\\service.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B4936A78-AFAA-4F83-99DC-7E3A67AEBD2E}|CurrencyExchange_Practice.API\\CurrencyExchange_Practice.API.csproj|d:\\mazen\\projects\\currencyexchange_practice\\currencyexchange_practice.api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B4936A78-AFAA-4F83-99DC-7E3A67AEBD2E}|CurrencyExchange_Practice.API\\CurrencyExchange_Practice.API.csproj|solutionrelative:currencyexchange_practice.api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{71ACB3CE-1D49-4E8C-ACBC-119A9A609083}|CurrencyExchange_Practice.Core\\CurrencyExchange_Practice.Core.csproj|d:\\mazen\\projects\\currencyexchange_practice\\currencyexchange_practice.core\\authdtos\\registerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{71ACB3CE-1D49-4E8C-ACBC-119A9A609083}|CurrencyExchange_Practice.Core\\CurrencyExchange_Practice.Core.csproj|solutionrelative:currencyexchange_practice.core\\authdtos\\registerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{B4936A78-AFAA-4F83-99DC-7E3A67AEBD2E}|CurrencyExchange_Practice.API\\CurrencyExchange_Practice.API.csproj|d:\\mazen\\projects\\currencyexchange_practice\\currencyexchange_practice.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B4936A78-AFAA-4F83-99DC-7E3A67AEBD2E}|CurrencyExchange_Practice.API\\CurrencyExchange_Practice.API.csproj|solutionrelative:currencyexchange_practice.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{71ACB3CE-1D49-4E8C-ACBC-119A9A609083}|CurrencyExchange_Practice.Core\\CurrencyExchange_Practice.Core.csproj|d:\\mazen\\projects\\currencyexchange_practice\\currencyexchange_practice.core\\authdtos\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{71ACB3CE-1D49-4E8C-ACBC-119A9A609083}|CurrencyExchange_Practice.Core\\CurrencyExchange_Practice.Core.csproj|solutionrelative:currencyexchange_practice.core\\authdtos\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B4936A78-AFAA-4F83-99DC-7E3A67AEBD2E}|CurrencyExchange_Practice.API\\CurrencyExchange_Practice.API.csproj|d:\\mazen\\projects\\currencyexchange_practice\\currencyexchange_practice.api\\controllers\\countrycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4936A78-AFAA-4F83-99DC-7E3A67AEBD2E}|CurrencyExchange_Practice.API\\CurrencyExchange_Practice.API.csproj|solutionrelative:currencyexchange_practice.api\\controllers\\countrycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{71ACB3CE-1D49-4E8C-ACBC-119A9A609083}|CurrencyExchange_Practice.Core\\CurrencyExchange_Practice.Core.csproj|d:\\mazen\\projects\\currencyexchange_practice\\currencyexchange_practice.core\\entities\\refreshtoken.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{71ACB3CE-1D49-4E8C-ACBC-119A9A609083}|CurrencyExchange_Practice.Core\\CurrencyExchange_Practice.Core.csproj|solutionrelative:currencyexchange_practice.core\\entities\\refreshtoken.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{71ACB3CE-1D49-4E8C-ACBC-119A9A609083}|CurrencyExchange_Practice.Core\\CurrencyExchange_Practice.Core.csproj|d:\\mazen\\projects\\currencyexchange_practice\\currencyexchange_practice.core\\interfaces\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{71ACB3CE-1D49-4E8C-ACBC-119A9A609083}|CurrencyExchange_Practice.Core\\CurrencyExchange_Practice.Core.csproj|solutionrelative:currencyexchange_practice.core\\interfaces\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,107 +38,100 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 3,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\Mazen\\Projects\\CurrencyExchange_Practice\\CurrencyExchange_Practice.API\\Program.cs",
               "RelativeDocumentMoniker": "CurrencyExchange_Practice.API\\Program.cs",
               "ToolTip": "D:\\Mazen\\Projects\\CurrencyExchange_Practice\\CurrencyExchange_Practice.API\\Program.cs",
               "RelativeToolTip": "CurrencyExchange_Practice.API\\Program.cs",
-              "ViewState": "AgIAAFsAAAAAAAAAAAAgwHcAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAACgAAAAAAAAAAAAgwGEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-14T16:53:39.795Z",
-              "IsPinned": true
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Repo.cs",
-              "DocumentMoniker": "D:\\Mazen\\Projects\\CurrencyExchange_Practice\\CurrencyExchange_Practice.Infrasturcture\\Repositories\\Repo.cs",
-              "RelativeDocumentMoniker": "CurrencyExchange_Practice.Infrasturcture\\Repositories\\Repo.cs",
-              "ToolTip": "D:\\Mazen\\Projects\\CurrencyExchange_Practice\\CurrencyExchange_Practice.Infrasturcture\\Repositories\\Repo.cs",
-              "RelativeToolTip": "CurrencyExchange_Practice.Infrasturcture\\Repositories\\Repo.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-19T08:02:10.471Z",
+              "IsPinned": true,
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "CurrencyController.cs",
-              "DocumentMoniker": "D:\\Mazen\\Projects\\CurrencyExchange_Practice\\CurrencyExchange_Practice.API\\Controllers\\CurrencyController.cs",
-              "RelativeDocumentMoniker": "CurrencyExchange_Practice.API\\Controllers\\CurrencyController.cs",
-              "ToolTip": "D:\\Mazen\\Projects\\CurrencyExchange_Practice\\CurrencyExchange_Practice.API\\Controllers\\CurrencyController.cs",
-              "RelativeToolTip": "CurrencyExchange_Practice.API\\Controllers\\CurrencyController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAG4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-17T20:40:55.07Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "CountryController.cs",
-              "DocumentMoniker": "D:\\Mazen\\Projects\\CurrencyExchange_Practice\\CurrencyExchange_Practice.API\\Controllers\\CountryController.cs",
-              "RelativeDocumentMoniker": "CurrencyExchange_Practice.API\\Controllers\\CountryController.cs",
-              "ToolTip": "D:\\Mazen\\Projects\\CurrencyExchange_Practice\\CurrencyExchange_Practice.API\\Controllers\\CountryController.cs",
-              "RelativeToolTip": "CurrencyExchange_Practice.API\\Controllers\\CountryController.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAACgAAAAxAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-17T20:30:09.915Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "RegisterDto.cs",
-              "DocumentMoniker": "D:\\Mazen\\Projects\\CurrencyExchange_Practice\\CurrencyExchange_Practice.Core\\AuthDtos\\RegisterDto.cs",
-              "RelativeDocumentMoniker": "CurrencyExchange_Practice.Core\\AuthDtos\\RegisterDto.cs",
-              "ToolTip": "D:\\Mazen\\Projects\\CurrencyExchange_Practice\\CurrencyExchange_Practice.Core\\AuthDtos\\RegisterDto.cs",
-              "RelativeToolTip": "CurrencyExchange_Practice.Core\\AuthDtos\\RegisterDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAA+AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-17T14:28:35.056Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
               "Title": "AuthController.cs",
               "DocumentMoniker": "D:\\Mazen\\Projects\\CurrencyExchange_Practice\\CurrencyExchange_Practice.API\\Controllers\\AuthController.cs",
               "RelativeDocumentMoniker": "CurrencyExchange_Practice.API\\Controllers\\AuthController.cs",
               "ToolTip": "D:\\Mazen\\Projects\\CurrencyExchange_Practice\\CurrencyExchange_Practice.API\\Controllers\\AuthController.cs",
               "RelativeToolTip": "CurrencyExchange_Practice.API\\Controllers\\AuthController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAASAAAAAAAAAA==",
+              "ViewState": "AgIAACYAAAAAAAAAAAAwwDAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-17T13:24:07.374Z"
+              "WhenOpened": "2025-05-17T13:24:07.374Z",
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "Service.cs",
+              "DocumentMoniker": "D:\\Mazen\\Projects\\CurrencyExchange_Practice\\CurrencyExchange_Practice.Application\\Services\\Service.cs",
+              "RelativeDocumentMoniker": "CurrencyExchange_Practice.Application\\Services\\Service.cs",
+              "ToolTip": "D:\\Mazen\\Projects\\CurrencyExchange_Practice\\CurrencyExchange_Practice.Application\\Services\\Service.cs",
+              "RelativeToolTip": "CurrencyExchange_Practice.Application\\Services\\Service.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABsAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-19T22:34:33.799Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "AuthService.cs",
               "DocumentMoniker": "D:\\Mazen\\Projects\\CurrencyExchange_Practice\\CurrencyExchange_Practice.Infrasturcture\\Repositories\\AuthService.cs",
               "RelativeDocumentMoniker": "CurrencyExchange_Practice.Infrasturcture\\Repositories\\AuthService.cs",
               "ToolTip": "D:\\Mazen\\Projects\\CurrencyExchange_Practice\\CurrencyExchange_Practice.Infrasturcture\\Repositories\\AuthService.cs",
               "RelativeToolTip": "CurrencyExchange_Practice.Infrasturcture\\Repositories\\AuthService.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAxwB8AAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAABYAAAAAAAAAAAAowLUAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-17T13:21:51.329Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "LoginDto.cs",
-              "DocumentMoniker": "D:\\Mazen\\Projects\\CurrencyExchange_Practice\\CurrencyExchange_Practice.Core\\AuthDtos\\LoginDto.cs",
-              "RelativeDocumentMoniker": "CurrencyExchange_Practice.Core\\AuthDtos\\LoginDto.cs",
-              "ToolTip": "D:\\Mazen\\Projects\\CurrencyExchange_Practice\\CurrencyExchange_Practice.Core\\AuthDtos\\LoginDto.cs",
-              "RelativeToolTip": "CurrencyExchange_Practice.Core\\AuthDtos\\LoginDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAbAAAAAAAAAA==",
+              "DocumentIndex": 4,
+              "Title": "CountryController.cs",
+              "DocumentMoniker": "D:\\Mazen\\Projects\\CurrencyExchange_Practice\\CurrencyExchange_Practice.API\\Controllers\\CountryController.cs",
+              "RelativeDocumentMoniker": "CurrencyExchange_Practice.API\\Controllers\\CountryController.cs",
+              "ToolTip": "D:\\Mazen\\Projects\\CurrencyExchange_Practice\\CurrencyExchange_Practice.API\\Controllers\\CountryController.cs",
+              "RelativeToolTip": "CurrencyExchange_Practice.API\\Controllers\\CountryController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-17T13:22:22.736Z"
+              "WhenOpened": "2025-05-19T22:25:34.617Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "RefreshToken.cs",
+              "DocumentMoniker": "D:\\Mazen\\Projects\\CurrencyExchange_Practice\\CurrencyExchange_Practice.Core\\Entities\\RefreshToken.cs",
+              "RelativeDocumentMoniker": "CurrencyExchange_Practice.Core\\Entities\\RefreshToken.cs",
+              "ToolTip": "D:\\Mazen\\Projects\\CurrencyExchange_Practice\\CurrencyExchange_Practice.Core\\Entities\\RefreshToken.cs",
+              "RelativeToolTip": "CurrencyExchange_Practice.Core\\Entities\\RefreshToken.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-19T22:00:42.253Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "IAuthService.cs",
+              "DocumentMoniker": "D:\\Mazen\\Projects\\CurrencyExchange_Practice\\CurrencyExchange_Practice.Core\\Interfaces\\IAuthService.cs",
+              "RelativeDocumentMoniker": "CurrencyExchange_Practice.Core\\Interfaces\\IAuthService.cs",
+              "ToolTip": "D:\\Mazen\\Projects\\CurrencyExchange_Practice\\CurrencyExchange_Practice.Core\\Interfaces\\IAuthService.cs",
+              "RelativeToolTip": "CurrencyExchange_Practice.Core\\Interfaces\\IAuthService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwA0AAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-19T11:26:06.258Z",
+              "EditorCaption": ""
             }
           ]
         }

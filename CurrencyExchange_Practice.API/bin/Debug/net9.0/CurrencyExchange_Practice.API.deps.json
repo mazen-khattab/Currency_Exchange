@@ -2196,6 +2196,9 @@
         }
       },
       "CurrencyExchange_Practice.Core/1.0.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "9.0.4"
+        },
         "runtime": {
           "CurrencyExchange_Practice.Core.dll": {
             "assemblyVersion": "1.0.0.0",
