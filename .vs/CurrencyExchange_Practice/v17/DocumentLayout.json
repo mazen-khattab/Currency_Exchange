@@ -51,8 +51,7 @@
               "ViewState": "AgIAACgAAAAAAAAAAAAgwGEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-14T16:53:39.795Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -65,8 +64,7 @@
               "ViewState": "AgIAACYAAAAAAAAAAAAwwDAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-17T13:24:07.374Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -78,8 +76,7 @@
               "RelativeToolTip": "CurrencyExchange_Practice.Application\\Services\\Service.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAABsAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-19T22:34:33.799Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-19T22:34:33.799Z"
             },
             {
               "$type": "Document",
@@ -89,7 +86,7 @@
               "RelativeDocumentMoniker": "CurrencyExchange_Practice.Infrasturcture\\Repositories\\AuthService.cs",
               "ToolTip": "D:\\Mazen\\Projects\\CurrencyExchange_Practice\\CurrencyExchange_Practice.Infrasturcture\\Repositories\\AuthService.cs",
               "RelativeToolTip": "CurrencyExchange_Practice.Infrasturcture\\Repositories\\AuthService.cs",
-              "ViewState": "AgIAABYAAAAAAAAAAAAowLUAAAAOAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-17T13:21:51.329Z",
               "EditorCaption": ""
@@ -104,8 +101,7 @@
               "RelativeToolTip": "CurrencyExchange_Practice.API\\Controllers\\CountryController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-19T22:25:34.617Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-19T22:25:34.617Z"
             },
             {
               "$type": "Document",
@@ -117,8 +113,7 @@
               "RelativeToolTip": "CurrencyExchange_Practice.Core\\Entities\\RefreshToken.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-19T22:00:42.253Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-19T22:00:42.253Z"
             },
             {
               "$type": "Document",
@@ -130,8 +125,7 @@
               "RelativeToolTip": "CurrencyExchange_Practice.Core\\Interfaces\\IAuthService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAqwA0AAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-19T11:26:06.258Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-19T11:26:06.258Z"
             }
           ]
         }
