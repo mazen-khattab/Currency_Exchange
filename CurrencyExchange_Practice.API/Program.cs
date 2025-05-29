@@ -14,7 +14,7 @@ using System.Text;
 namespace CurrencyExchange_Practice.API
 {
     public class Program
-    { 
+    {
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
@@ -32,7 +32,7 @@ namespace CurrencyExchange_Practice.API
 
             builder.Services.AddInfrastructureServices(connectionString);
             #endregion
-            
+
             #region Authentication
             builder.Services.AddIdentity<User, IdentityRole>()
                 .AddEntityFrameworkStores<AppDbContext>()
@@ -56,6 +56,15 @@ namespace CurrencyExchange_Practice.API
             })
                 .AddJwtBearer(options =>
                 {
+                    options.Events = new JwtBearerEvents
+                    {
+                        OnMessageReceived = context =>
+                        {
+                            context.Token = context.Request.Cookies["accessToken"];
+                            return Task.CompletedTask;
+                        }
+                    };
+
                     options.SaveToken = false;
                     options.RequireHttpsMetadata = false;
                     options.TokenValidationParameters = new()
@@ -86,10 +95,13 @@ namespace CurrencyExchange_Practice.API
             builder.Services.AddCors(options =>
             {
                 options.AddPolicy(
-                    "AllowAll",
+                    "FrontendPolicy",
                     policy =>
                     {
-                        policy.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+                        policy.WithOrigins("http://localhost:5173")
+                            .AllowAnyHeader()
+                            .AllowAnyMethod()
+                            .AllowCredentials();
                     });
             });
 
@@ -108,6 +120,8 @@ namespace CurrencyExchange_Practice.API
 
             app.UseHttpsRedirection();
 
+            app.UseCors("FrontendPolicy");
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseSwagger();
@@ -118,7 +132,6 @@ namespace CurrencyExchange_Practice.API
             });
 
             app.MapControllers();
-            app.UseCors("AllowAll");
             app.Run();
         }
     }

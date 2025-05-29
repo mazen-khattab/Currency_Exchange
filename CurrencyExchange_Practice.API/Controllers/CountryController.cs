@@ -28,7 +28,7 @@ namespace CurrencyExchange_Practice.API.Controllers
         [ResponseCache(Duration = 30)]
         [Route("GetAll")]
         [Authorize(Roles = $"{StaticUserRoles.USER}")]
-        public async Task<ActionResult<Country>> Getall() => Ok(await _countryService.GetAllAsync(tracked: false));
+        public async Task<ActionResult<Country>> Getall() => Ok(await _countryService.GetAsync(tracked: false));
 
         [HttpGet("GetCountriesByCode")]
         public async Task<ActionResult<IEnumerable<Country>>> GetAllCountriesByCode(string code) => Ok(await _countryService.GetAllCountriesByCode(code));

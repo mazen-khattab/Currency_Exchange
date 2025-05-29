@@ -21,16 +21,16 @@ namespace CurrencyExchange_Practice.Application.Services.Decorator
         }
 
 
-        public async Task<IEnumerable<Currency>> GetAllAsync(Expression<Func<Currency, bool>>? filter = null, bool tracked = true, params Expression<Func<Currency, object>>[] includes)
+        public async Task<IEnumerable<Currency>> GetAsync(Expression<Func<Currency, bool>>? filter = null, bool tracked = true, params Expression<Func<Currency, object>>[] includes)
         {
             if (includes?.Any() == true)
             {
-                return await _currency.GetAllAsync();
+                return await _currency.GetAsync();
             }
 
             string key = $"Currency.GetAll";
 
-            return await _cache.GetOrCreateAsync(key, () => _currency.GetAllAsync(filter, tracked, includes), TimeSpan.FromMinutes(5));
+            return await _cache.GetOrCreateAsync(key, () => _currency.GetAsync(filter, tracked, includes), TimeSpan.FromMinutes(5));
         }
 
         public async Task<Currency> GetByIdAsync(int id, params Expression<Func<Currency, object>>[] includes)

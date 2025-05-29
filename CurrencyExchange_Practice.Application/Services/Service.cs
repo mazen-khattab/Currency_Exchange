@@ -21,7 +21,7 @@ namespace CurrencyExchange_Practice.Application.Services
             _repo = unitOfWork.GetRepo<T>();
         }
 
-        public async Task<IEnumerable<T>> GetAllAsync(Expression<Func<T, bool>>? filter = null, bool tracked = true, params Expression<Func<T, object>>[] includes) => await _repo.GetAll(filter, tracked, includes);
+        public async Task<IEnumerable<T>> GetAsync(Expression<Func<T, bool>>? filter = null, bool tracked = true, params Expression<Func<T, object>>[] includes) => await _repo.GetAll(filter, tracked, includes);
 
         public async Task<T> GetByIdAsync(int id, params Expression<Func<T, object>>[] includes) => await _repo.GetById(id, includes);
 

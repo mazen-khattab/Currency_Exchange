@@ -23,15 +23,16 @@ namespace CurrencyExchange_Practice.Infrasturcture.Repositories
     public class AuthService : IAuthService
     {
         readonly UserManager<User> _userManager;
+        //readonly SignInManager<>
         readonly RoleManager<IdentityRole> _roleManager;
         readonly IConfiguration _configuration;
-        readonly IService<RefreshToken> _service;
+        readonly IService<RefreshToken> _refreshService;
 
         public AuthService(UserManager<User> userManager, RoleManager<IdentityRole> roleManager, IService<RefreshToken> service, IConfiguration configuration)
         {
             _userManager = userManager;
             _roleManager = roleManager;
-            _service = service;
+            _refreshService = service;
             _configuration = configuration;
         }
 
@@ -59,15 +60,12 @@ namespace CurrencyExchange_Practice.Infrasturcture.Repositories
                 };
             }
 
-            string accessToken = await GenerateNewAccessToken(user);
-            string refreshToken = await GenerateNewRefreshToken(user);
-
             return new AuthServiceResponseDto()
             {
                 IsSucceed = true,
                 Message = "Login successful",
-                AccessToken = accessToken,
-                RefreshToken = refreshToken
+                AccessToken = await GenerateNewAccessToken(user),
+                RefreshToken = await GenerateNewRefreshToken(user.Id)
             };
         }
 
@@ -121,7 +119,7 @@ namespace CurrencyExchange_Practice.Infrasturcture.Repositories
             await _userManager.AddToRoleAsync(newUser, StaticUserRoles.USER);
 
             string accessToken = await GenerateNewAccessToken(newUser);
-            string refreshToken = await GenerateNewRefreshToken(newUser);
+            string refreshToken = await GenerateNewRefreshToken(newUser.Id);
 
             return new AuthServiceResponseDto()
             {
@@ -141,6 +139,7 @@ namespace CurrencyExchange_Practice.Infrasturcture.Repositories
                 new Claim(ClaimTypes.Name, user.UserName),
                 new Claim(ClaimTypes.NameIdentifier, user.Id),
                 new Claim("JWTID", Guid.NewGuid().ToString()),
+                new Claim(ClaimTypes.Email, user.Email)
             };
 
             foreach (var role in userRoles)
@@ -153,7 +152,7 @@ namespace CurrencyExchange_Practice.Infrasturcture.Repositories
             var tokenOjbect = new JwtSecurityToken(
                     issuer: _configuration["Jwt:Issuer"],
                     audience: _configuration["Jwt:Audience"],
-                    expires: DateTime.Now.AddMinutes(5),
+                    expires: DateTime.Now.AddMinutes(15),
                     claims: authClaims,
                     signingCredentials: new SigningCredentials(authSecret, SecurityAlgorithms.HmacSha256));
 
@@ -162,7 +161,7 @@ namespace CurrencyExchange_Practice.Infrasturcture.Repositories
             return token;
         }
 
-        private async Task<string> GenerateNewRefreshToken(User user)
+        private async Task<string> GenerateNewRefreshToken(string userId)
         {
             var randomNumber = new byte[64];
 
@@ -175,15 +174,50 @@ namespace CurrencyExchange_Practice.Infrasturcture.Repositories
 
             RefreshToken refreshToken = new()
             {
-                Token = token,
-                UserId = user.Id,
+                Token = token,  
+                UserId = userId,
                 ExpDate = DateTime.Now.AddDays(7),
-                User = user
             };
 
-            await _service.AddAsync(refreshToken);
+            var currentRefreshToken = (await _refreshService.GetAsync(rf => rf.UserId == userId)).FirstOrDefault();
+
+            if (currentRefreshToken is { })
+            {
+                currentRefreshToken.Token = refreshToken.Token;
+                currentRefreshToken.ExpDate = DateTime.Now.AddDays(7);
+
+                await _refreshService.UpdateAsync(currentRefreshToken);
+            }
+            else
+            {
+                await _refreshService.AddAsync(refreshToken);
+            }
 
             return token;
+        }
+
+        public async Task<AuthServiceResponseDto> ValidateRefreshToken(string token)
+        {
+            var refreshToken = (await _refreshService.GetAsync(rf => rf.Token == token)).FirstOrDefault();
+
+            if (refreshToken is null || refreshToken.ExpDate < DateTime.UtcNow)
+            {
+                return new AuthServiceResponseDto()
+                {
+                    Message = "Invalid token",
+                    IsSucceed = false
+                };
+            }
+
+            var user = await _userManager.FindByIdAsync(refreshToken?.UserId);
+
+            return new()
+            {
+                Message = "succeeded",
+                IsSucceed = true,
+                AccessToken = await GenerateNewAccessToken(user),
+                RefreshToken = await GenerateNewRefreshToken(refreshToken.UserId)
+            };
         }
 
         public async Task<AuthServiceResponseDto> MakeAdminAsynce(UpdatePermissionDto updatePermissionDto)
@@ -207,7 +241,7 @@ namespace CurrencyExchange_Practice.Infrasturcture.Repositories
                 Message = "User is now an Admin"
             };
         }
-
+          
         public async Task<AuthServiceResponseDto> MakeOwnerAsynce(UpdatePermissionDto updatePermissionDto)
         {
             var user = await _userManager.FindByNameAsync(updatePermissionDto.UserName);

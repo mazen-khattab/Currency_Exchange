@@ -1,4 +1,5 @@
 ﻿using CurrencyExchange_Practice.Core.AuthDtos;
+using CurrencyExchange_Practice.Core.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,5 +15,6 @@ namespace CurrencyExchange_Practice.Core.Interfaces
         Task<AuthServiceResponseDto> LoginAsync(LoginDto loginDto);
         Task<AuthServiceResponseDto> MakeAdminAsynce(UpdatePermissionDto updatePermissionDto);
         Task<AuthServiceResponseDto> MakeOwnerAsynce(UpdatePermissionDto updatePermissionDto);
+        Task<AuthServiceResponseDto> ValidateRefreshToken(string token);
     }
 }

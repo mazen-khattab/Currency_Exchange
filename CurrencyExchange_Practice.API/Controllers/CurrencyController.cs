@@ -26,7 +26,7 @@ namespace CurrencyExchange_Practice.API.Controllers
         [HttpGet]
         [Route("GetAll")]
         [Authorize(Roles = $"{StaticUserRoles.USER}")]
-        public async Task<ActionResult<List<Currency>>> Getall() => Ok(await _currencyService.GetAllAsync());
+        public async Task<ActionResult<List<Currency>>> Getall() => Ok(await _currencyService.GetAsync());
 
 
         [HttpGet("GetCurrencyByCode")]

@@ -25,7 +25,7 @@ namespace CurrencyExchange_Practice.API.Controllers
         [HttpGet]
         [Route("GetAll")]
         [Authorize(Roles = $"{StaticUserRoles.ADMIN},{StaticUserRoles.OWNER}, {StaticUserRoles.USER}")]
-        public async Task<ActionResult<List<ExchangeRate>>> Getall() => Ok(await _rateService.GetAllAsync());
+        public async Task<ActionResult<List<ExchangeRate>>> Getall() => Ok(await _rateService.GetAsync());
 
 
         [HttpGet("id")]
